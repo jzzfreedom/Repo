@@ -1,0 +1,76 @@
+﻿<Page x:Class="ProjectAgle.NewPage.SelfCheckingPage.SelfCheckingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectAgle.NewPage.SelfCheckingPage"
+      xmlns:checking="clr-namespace:ProjectAgle.control.CheckingResult"
+      mc:Ignorable="d" 
+      Title="SelfCheckingPage"
+      Loaded="OnLoaded">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Image x:Name="CheckingPageBackground"
+               Opacity="1"
+               Stretch="Fill"/>
+        </StackPanel>
+        <StackPanel x:Name="SelfCheckingPageMainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="SelfCheckingPageTitle" 
+                           Text="Agle Self Checking..." 
+                           FontSize="60" Grid.Row="0" 
+                           Margin="0,60,0,20"
+                           HorizontalAlignment="Center"
+                           Foreground="White"/>
+                <Rectangle Width="1000" VerticalAlignment="Stretch" Fill="White" Grid.Row="1" Opacity="0.7"/>
+                <StackPanel x:Name="CheckingInfoPanel" Width="1000" Grid.Row="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel x:Name="FirstRow" Orientation="Vertical" Grid.Row="0">
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Style="{StaticResource BaseTextTitleStyle}" Text="System Module"/>
+                                <TextBlock Grid.Column="1" Style="{StaticResource BaseTextTitleStyle}" Text="Status"/>
+                                <TextBlock Grid.Column="2" Style="{StaticResource BaseTextTitleStyle}" Text="Critical"/>
+                                <Border Height="70" Width="70" Grid.Column="3"/>
+                            </Grid>
+                            <Rectangle HorizontalAlignment="Stretch" Height="5" Fill="Black"/>
+                        </StackPanel>
+                        <ScrollViewer x:Name="CheckingListScrollView" Grid.Row="1" CanContentScroll="True">
+                            <checking:CheckingResult x:Name="AgleCheckingList"/>
+                        </ScrollViewer>
+                        <TextBlock x:Name="FinalDecision" 
+                           Style="{StaticResource BaseTextTitleStyle}" 
+                           Text="{Binding DecisionString}"
+                           Grid.Row="2"
+                           Foreground="{Binding DecisionColor}"
+                           HorizontalAlignment="Center"
+                           FontSize="50"
+                           Opacity="0"/>
+                    </Grid>
+                </StackPanel>
+
+            </Grid>
+        </StackPanel>
+        <Button x:Name="SelfCheckingPageButton"
+                        Content="SelfCheckingPageButton"
+                        Background="Transparent"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Bottom"
+                        Height="30"/>
+    </Grid>
+</Page>

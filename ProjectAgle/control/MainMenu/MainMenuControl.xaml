@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="ProjectAgle.control.MainMenu.MainMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectAgle.control.MainMenu"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MainMenuStyle" TargetType="MenuItem">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Menu IsMainMenu="True" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+            <MenuItem Header="_Control" Style="{StaticResource MainMenuStyle}">
+                <MenuItem Header="_Save"/>
+                <Separator/>
+                <MenuItem Header="_Load"/>
+            </MenuItem>
+            <MenuItem Header="Mode" Style="{StaticResource MainMenuStyle}">
+                <MenuItem Header="_Freeway"/>
+                <Separator/>
+                <MenuItem Header="_City"/>
+                <Separator/>
+                <MenuItem Header="_Parking"/>
+                <Separator/>
+                <MenuItem Header="_Reverse"/>
+                <Separator/>
+                <MenuItem Header="_Left"/>
+                <Separator/>
+                <MenuItem Header="_Right"/>
+            </MenuItem>
+            <MenuItem Header="_View" Style="{StaticResource MainMenuStyle}">
+                <MenuItem Header="_Kinect Color" Command="{Binding KinectColorSelected}"/>
+                <Separator/>
+                <MenuItem Header="_Kinect Infrared" Command="{Binding KinectInfraredSelected}"/>
+                <Separator/>
+                <MenuItem Header="_Kinect Depth" Command="{Binding KinectDepthSelected}"/>
+                <Separator/>
+                <MenuItem Header="_Main Front"/>
+                <Separator/>
+                <MenuItem Header="_Forward"/>
+                <Separator/>
+                <MenuItem Header="_Back"/>
+                <Separator/>
+                <MenuItem Header="_Left"/>
+                <Separator/>
+                <MenuItem Header="_Right"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>

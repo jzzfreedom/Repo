@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ProjectAgle.control.CheckingResult.CheckingResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectAgle.control.CheckingResult"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+          
+
+            <Style x:Key="CheckingListNameStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}">
+                <Setter Property="Foreground" Value="Blue"/>             
+            </Style>
+
+            <Style x:Key="CheckingListStatusStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}">
+                <Setter Property="Foreground" Value="OrangeRed"/>
+            </Style>
+
+            <Style x:Key="CheckingListNecessaryStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextStyle}">
+                <Setter Property="Foreground" Value="Green"/>
+            </Style>
+
+            
+            
+            
+            <DataTemplate x:Key="CheckingListItemTemplate">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Style="{StaticResource CheckingListNameStyle}" Text="{Binding Name}"/>
+                    <TextBlock Grid.Column="1" Style="{StaticResource CheckingListStatusStyle}" Text="{Binding IsSuccess}"/>
+                    <TextBlock Grid.Column="2" Style="{StaticResource CheckingListNecessaryStyle}" Text="{Binding IsNecessary}"/>
+                    <Border Height="50" Width="50" Grid.Column="3">
+                        <Image Stretch="UniformToFill" Source="{Binding ImageIcon}"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid x:Name="CheckingListUC">
+        <ItemsControl x:Name="CheckingListItem"
+                              HorizontalAlignment="Stretch"
+                              ItemsSource="{Binding Item}"
+                              ItemTemplate="{StaticResource CheckingListItemTemplate}"/>
+    </Grid>
+</UserControl>

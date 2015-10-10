@@ -1,0 +1,40 @@
+﻿<Page x:Class="ProjectAgle.NewPage.AglePage.AglePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectAgle.NewPage.AglePage"
+      xmlns:control="clr-namespace:ProjectAgle.control.ControlPanel"
+      xmlns:info="clr-namespace:ProjectAgle.control.InfoPanel"
+      xmlns:mainMenu="clr-namespace:ProjectAgle.control.MainMenu"
+      mc:Ignorable="d" 
+      Title="AglePage">
+
+    <Grid>
+
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <mainMenu:MainMenuControl x:Name="MainMenuUC" Grid.Row="0"/>
+                <StackPanel Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Grid.Column="0">
+                            <Image x:Name="MainView" Source="{Binding ImageSource}" Stretch="UniformToFill"/>
+                        </Viewbox>
+                        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Right" Grid.Column="1" Background="Black" Orientation="Horizontal">
+                            <Rectangle Fill="White" Width="5" VerticalAlignment="Stretch"/>
+                            <info:InfoPanel x:Name="InfoPanel" Width="250" VerticalAlignment="Stretch" Margin="0,30,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
