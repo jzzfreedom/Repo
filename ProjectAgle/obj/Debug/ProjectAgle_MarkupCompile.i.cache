@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\ProjectAgle\ProjectAgle\ProjectAgle\obj\Debug\
+E:\ProjectAgle\Repo\ProjectAgle\obj\Debug\
 ProjectAgle
 none
 false
 DEBUG;TRACE
-E:\ProjectAgle\ProjectAgle\ProjectAgle\App.xaml
+E:\ProjectAgle\Repo\ProjectAgle\App.xaml
 9278488756
 
 28-482024981
 15-2126377190
 control\ControlPanel\ControlPanel.xaml;control\InfoPanel\InfoPanel.xaml;control\MainMenu\MainMenuControl.xaml;control\Menu\MenuControl.xaml;MainWindow.xaml;NewPage\AglePage\AglePage.xaml;NewPage\SelfCheckingPage\SelfCheckingPage.xaml;NewPage\TitlePage\TitlePage.xaml;control\CheckingResult\CheckingResult.xaml;
 
-False
+True
 
