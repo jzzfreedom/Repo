@@ -66,6 +66,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Agle\Agle.cs" />
+    <Compile Include="Agle\AgleVisionControl\AgleColorFrame.cs" />
+    <Compile Include="Agle\AgleVisionControl\AgleDepthFrame.cs" />
+    <Compile Include="Agle\AgleVisionControl\AgleInfraredFrame.cs" />
+    <Compile Include="Agle\AgleVisionControl\IAgleVision.cs" />
     <Compile Include="Agle\AgleVoiceControl\AgleVoice.cs" />
     <Compile Include="Agle\AgleVoiceControl\KinectAudioStream.cs" />
     <Compile Include="control\CheckingResult\CheckingResult.xaml.cs">
