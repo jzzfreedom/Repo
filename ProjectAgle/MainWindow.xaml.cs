@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,11 @@ namespace ProjectAgle
         void OnSelfCheckingPageFinished(object sender, object arg)
         {
 
+        }
+
+        void OnWindowClosed(object sender, CancelEventArgs e)
+        {
+            this.mainWindowViewModel.OnWindowClosedHandler();
         }
     }
 }

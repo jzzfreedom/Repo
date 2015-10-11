@@ -1,4 +1,5 @@
 ﻿using Microsoft.Kinect;
+using ProjectAgle.Agle.AgleVoiceControl;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -61,6 +62,7 @@ namespace ProjectAgle.Agle
         public event EventHandler<object> ImageSourceUpdate;
         public event EventHandler<int> FPSUpdate;
         public event EventHandler<AgleView> AgleViewUpdate;
+        public event EventHandler<string> AgleInfoUpdate;
 
         //Kinect related
         private KinectSensor kinectSensor = null;
@@ -70,12 +72,13 @@ namespace ProjectAgle.Agle
         private FrameDescription infraredFrameDescription = null;
         private DepthFrameReader depthFrameReader = null;
         private FrameDescription depthFrameDescription = null;
-
+        private AgleVoice agleVoice = null;
         //Kinect status related
         bool isKinectAvailable = true;
         bool isKinectColorAvailable = true;
         bool isKinectInfraredAvailable = true;
         bool isKinectDepthAvailable = true;
+        bool isKinectVoiceAvailable = true;
 
         AgleView currentViewState = AgleView.KinectColor;
          
@@ -187,6 +190,15 @@ namespace ProjectAgle.Agle
             //Open Kinect
             this.kinectSensor.IsAvailableChanged += this.OnKinectStatusChanged;
             this.kinectSensor.Open();
+
+            // Kinect voice control
+            agleVoice = new AgleVoice();
+            isKinectVoiceAvailable = this.agleVoice.TryInitializeAgleVoice(kinectSensor);
+            this.agleVoice.UpdateVoiceCommand += this.AgleChangeInfo;
+            this.agleVoice.UpdateAgleViewByVoice += this.ChangeViewByVoice;
+            CheckingInfo checkingInfoKinectVoice = new CheckingInfo("Kinect Voice", this.isKinectVoiceAvailable, false);
+            checkingInfoList.Add(checkingInfoKinectVoice);
+
 
             isCheckingFinished = true;
             //this.currentViewState = AgleView.KinectInfrared;
@@ -431,6 +443,24 @@ namespace ProjectAgle.Agle
                 this.currentViewState = nextViewState;
                 AgleViewUpdate.Invoke(this, nextViewState);
             }
+        }
+
+        internal void AgleChangeInfo(object sender, string newInfo)
+        {
+            this.AgleInfoUpdate.Invoke(this, newInfo);
+        }
+
+        internal void ChangeViewByVoice(object sender, AgleView nextViewState)
+        {
+            this.AgleChangeView(nextViewState);
+        }
+
+        internal void OnWindowClosed()
+        {
+            this.TerminateKinectColorFrame();
+            this.TerminateKinectDepthFrame();
+            this.TerminateKinectInfraredFrame();
+            this.agleVoice.TerminateVoiceControl();
         }
     }
 }

@@ -34,6 +34,7 @@ namespace ProjectAgle.NewPage.AglePage
             this.MyAgle.ImageSourceUpdate += this.OnImageSourceUpdated;
             this.MyAgle.FPSUpdate += this.OnFPSUpdated;
             this.MyAgle.AgleViewUpdate += this.OnAgleViewUpdated;
+            this.MyAgle.AgleInfoUpdate += this.OnInfoUpdated;
 
             /*-------------------------create all kinds of view model--------------------*/
             this.infoPanelVM = new InfoPanelViewModel();
@@ -56,6 +57,11 @@ namespace ProjectAgle.NewPage.AglePage
         private void OnFPSUpdated(object sender, int fps)
         {
             this.infoPanelVM.UpdateFps(fps);
+        }
+
+        private void OnInfoUpdated(object sender, string newInfo)
+        {
+            this.infoPanelVM.UpdateInfo(newInfo);
         }
 
         private void OnAgleViewUpdated(object sender, AgleView nextViewState)

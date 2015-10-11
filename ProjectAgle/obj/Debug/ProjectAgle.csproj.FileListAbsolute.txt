@@ -66,3 +66,4 @@ E:\ProjectAgle\Repo\ProjectAgle\obj\Debug\control\CheckingResult\CheckingResult.
 E:\ProjectAgle\Repo\ProjectAgle\obj\Debug\ProjectAgle.g.resources
 E:\ProjectAgle\Repo\ProjectAgle\obj\Debug\ProjectAgle.Properties.Resources.resources
 E:\ProjectAgle\Repo\ProjectAgle\obj\Debug\ProjectAgle.csproj.GenerateResource.Cache
+E:\ProjectAgle\Repo\ProjectAgle\bin\Debug\Microsoft.Speech.dll

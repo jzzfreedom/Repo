@@ -71,5 +71,12 @@ namespace ProjectAgle
             this.currentFrame.NavigationService.Navigate(aglePage);
         }
 
+        internal void OnWindowClosedHandler()
+        {
+            if (null != this.MyAgle)
+            {
+                MyAgle.OnWindowClosed();
+            }
+        }
     }
 }

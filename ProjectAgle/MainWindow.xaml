@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectAgle"
         mc:Ignorable="d"
-        Title="ProjectAgle" WindowState="Maximized">
+        Title="ProjectAgle" WindowState="Maximized"
+        Closing="OnWindowClosed">
 
     <Grid x:Name="RootGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
