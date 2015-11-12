@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\ProjectAgle\ProjectAgle\ProjectAgle\obj\Release\
+E:\ProjectAgle\Repo\ProjectAgle\obj\Release\
 ProjectAgle
 none
 false
 TRACE
-E:\ProjectAgle\ProjectAgle\ProjectAgle\App.xaml
-51286464589
+E:\ProjectAgle\Repo\ProjectAgle\App.xaml
+9278488756
 
-192006425541
-15-2126377190
-MainWindow.xaml;NewPage\AglePage\AglePage.xaml;NewPage\SelfCheckingPage\SelfCheckingPage.xaml;NewPage\TitlePage\TitlePage.xaml;control\CheckingResult\CheckingResult.xaml;
+34-762424185
+16-1841741512
+control\ControlPanel\ControlPanel.xaml;control\InfoPanel\InfoPanel.xaml;control\MainMenu\MainMenuControl.xaml;control\Menu\MenuControl.xaml;MainWindow.xaml;NewPage\AglePage\AglePage.xaml;NewPage\SelfCheckingPage\SelfCheckingPage.xaml;NewPage\TitlePage\TitlePage.xaml;control\CheckingResult\CheckingResult.xaml;
 
 True
 

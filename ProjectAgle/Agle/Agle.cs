@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
+using KinectVisionWrapper;
+using System.Threading;
+using System.Drawing;
+using System.IO;
 
 namespace ProjectAgle.Agle
 {
@@ -50,6 +55,7 @@ namespace ProjectAgle.Agle
     };
     class Agle
     {
+
         private static volatile Agle agleInstance;
         private static object syncRoot = new Object();
         private static object agleViewStateLock = new Object();
@@ -67,15 +73,28 @@ namespace ProjectAgle.Agle
         private AgleDepthFrame agleDepthFrame = null;
         private double fps;
 
-        //Kinect status related
+        // Kinect status related
         bool isKinectAvailable = true;
         bool isKinectColorAvailable = true;
         bool isKinectInfraredAvailable = true;
         bool isKinectDepthAvailable = true;
         bool isKinectVoiceAvailable = true;
 
-        AgleView currentViewState = AgleView.KinectColor;
-         
+        // OpenCV camera status related
+        bool isOpenCVMainFrontCameraAvailable = true;
+
+
+        // OpenCV related
+        private Dispatcher mainWindowDispatcher;
+        delegate void OpencCVDelegate(newFrameEventArgs e);
+        OpencCVDelegate opencvDelegate;
+        KinectOpenCV kinectOpenCV;
+        private ImageSource openCVCameraFrame;
+        Task openCVTask;
+        public event EventHandler<AgleView> OnMainCameraFrameArrived;
+
+        AgleView currentViewState = AgleView.MainFront;
+
         // Checking status list
         private List<CheckingInfo> checkingInfoList;
         internal bool isCheckingFinished = false;
@@ -87,7 +106,7 @@ namespace ProjectAgle.Agle
             get
             {
                 lock (agleViewStateLock)
-                {
+                {                                      
                     switch (this.currentViewState)
                     {
                         case AgleView.KinectColor:
@@ -96,6 +115,8 @@ namespace ProjectAgle.Agle
                             return this.agleInfraredFrame.currentImage;
                         case AgleView.KinectDepth:
                             return this.agleDepthFrame.currentImage;
+                        case AgleView.MainFront:
+                            return this.openCVCameraFrame;
                         default:
                             return null;
                     }
@@ -140,9 +161,9 @@ namespace ProjectAgle.Agle
             }
         }
 
-        internal void InitializeAgle()
+        internal void InitializeAgle(Dispatcher mainWindowDispatcher)
         {
-
+            this.mainWindowDispatcher = mainWindowDispatcher;
         }
 
         internal void CheckingModule()
@@ -166,27 +187,27 @@ namespace ProjectAgle.Agle
             //Checking infrared frame
             this.agleInfraredFrame = new AgleInfraredFrame(this.kinectSensor);
             this.isKinectInfraredAvailable = this.agleInfraredFrame.InitializeFrame();
-            this.agleInfraredFrame.OnFrameArrived += this.AgleVisionFrameArrived;
+            this.agleInfraredFrame.OnFrameArrived += this.AgleVisionFrameArrivedFromKinectSensor;
             CheckingInfo checkingInfoKinectInfrared = new CheckingInfo("Kinect Infrared", this.isKinectColorAvailable, false);
             checkingInfoList.Add(checkingInfoKinectInfrared);
 
             //Checking color frame
             this.agleColorFrame = new AgleColorFrame(this.kinectSensor);
             this.isKinectColorAvailable = this.agleColorFrame.InitializeFrame();
-            this.agleColorFrame.OnFrameArrived += this.AgleVisionFrameArrived;
+            this.agleColorFrame.OnFrameArrived += this.AgleVisionFrameArrivedFromKinectSensor;
             CheckingInfo checkingInfoKinectColor = new CheckingInfo("Kinect Color", this.isKinectColorAvailable, false);
             checkingInfoList.Add(checkingInfoKinectColor);
 
             //Checking depth frame
             this.agleDepthFrame = new AgleDepthFrame(this.kinectSensor);
             this.isKinectDepthAvailable = this.agleDepthFrame.InitializeFrame();
-            this.agleDepthFrame.OnFrameArrived += this.AgleVisionFrameArrived;
+            this.agleDepthFrame.OnFrameArrived += this.AgleVisionFrameArrivedFromKinectSensor;
             CheckingInfo checkingInfoKinectDepth = new CheckingInfo("Kinect Depth", this.isKinectDepthAvailable, false);
             checkingInfoList.Add(checkingInfoKinectDepth);
 
 
 
-            //Open Kinect
+            // Open Kinect
             this.kinectSensor.IsAvailableChanged += this.OnKinectStatusChanged;
             this.kinectSensor.Open();
 
@@ -198,11 +219,66 @@ namespace ProjectAgle.Agle
             CheckingInfo checkingInfoKinectVoice = new CheckingInfo("Kinect Voice", this.isKinectVoiceAvailable, false);
             checkingInfoList.Add(checkingInfoKinectVoice);
 
+            // OpenCV related initialization
+            this.kinectOpenCV = new KinectOpenCV();
+            this.isOpenCVMainFrontCameraAvailable = this.kinectOpenCV.CheckMainFrontCameraAvailability();
+            CheckingInfo checkingInfoMainFront = new CheckingInfo("Main Forward Camera", this.isOpenCVMainFrontCameraAvailable, true);
+            checkingInfoList.Add(checkingInfoMainFront);
+            launchOpenCVCamera();
+
 
             isCheckingFinished = true;
-            this.currentViewState = AgleView.KinectColor;
+            this.currentViewState = AgleView.MainFront;
+
         }
-        
+
+        private void launchOpenCVCamera()
+        {           
+            this.opencvDelegate = new OpencCVDelegate(AgleVisionFrameArrivedFromOpenCVCamera);
+            this.kinectOpenCV.newFrameArrive += this.OnOpenCVFrameArrived;
+            this.openCVTask = new Task(() => this.kinectOpenCV.Startup());
+            this.openCVTask.Start();
+        }
+
+
+        private void OnOpenCVFrameArrived(object sender, EventArgs arg)
+        {
+            // This function will run in work thread
+            var newArg = arg as newFrameEventArgs;          
+            mainWindowDispatcher.Invoke(this.opencvDelegate, newArg);
+        }
+
+        void AgleVisionFrameArrivedFromOpenCVCamera(newFrameEventArgs e)
+        {
+            // This function need to run in UI thread
+            AgleView viewArrived = (AgleView)e.AgleViewCode;
+            if (viewArrived == currentViewState)
+            {
+                Bitmap newBitmap = e.NewBitmap;
+                var tempImage = BitmapToImageSource(newBitmap);
+                this.openCVCameraFrame = BitmapToImageSource(newBitmap);
+                this.ImageSourceUpdate.Invoke(this, null);
+                FPSUpdate.Invoke(this, 812);
+            }
+        }
+
+        BitmapImage BitmapToImageSource(Bitmap bitmap)
+        {
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                memory.Position = 0;
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.BeginInit();
+                bitmapimage.StreamSource = memory;
+                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapimage.EndInit();
+
+                return bitmapimage;
+            }
+        }
+
+
         private void OnKinectStatusChanged(object sender, IsAvailableChangedEventArgs e)
         {
 
@@ -217,7 +293,7 @@ namespace ProjectAgle.Agle
             }
         }
 
-        internal void AgleVisionFrameArrived(object sender, AgleView viewArrived)
+        internal void AgleVisionFrameArrivedFromKinectSensor(object sender, AgleView viewArrived)
         {
             if (viewArrived == currentViewState)
             {
@@ -244,6 +320,8 @@ namespace ProjectAgle.Agle
             this.agleColorFrame.TerminateFrame();
             this.agleDepthFrame.TerminateFrame();
             this.agleVoice.TerminateVoiceControl();
+            this.kinectOpenCV.MainCameraTerminate();
+
         }
     }
 }

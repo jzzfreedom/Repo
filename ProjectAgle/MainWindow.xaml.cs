@@ -25,7 +25,8 @@ namespace ProjectAgle
         public MainWindow()
         {
             InitializeComponent();
-            mainWindowViewModel = new MainWindowViewModel(this.CurrentFrame);
+            var mainWindowDispatcher = this.Dispatcher;
+            mainWindowViewModel = new MainWindowViewModel(this.CurrentFrame, mainWindowDispatcher);
         }
 
         void onClick(object sender, RoutedEventArgs arg)

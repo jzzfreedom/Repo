@@ -1,0 +1,81 @@
+﻿生成启动时间为 2015/10/12 21:37:18。
+     1>项目“E:\ProjectAgle\Repo\OpenCVTester\OpenCVTester.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"x64\Debug\OpenCVTester.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Xml.dll" /errorReport:prompt /clr:nostdlib Stdafx.cpp
+         Stdafx.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"x64\Debug\OpenCVTester.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.Xml.dll" /errorReport:prompt /clr:nostdlib AssemblyInfo.cpp OpenCVTester.cpp
+         AssemblyInfo.cpp
+         OpenCVTester.cpp
+     1>C:\OpenCV\opencv\build\include\opencv2/core/mat.hpp(1965): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\OpenCV\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>C:\OpenCV\opencv\build\include\opencv2/core/utility.hpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         正在生成代码...
+     1>c:\opencv\opencv\build\include\opencv2\core\cvstd.hpp(592): warning C4793: “cv::String::String”: 编译为本机的函数:
+         	托管代码中发现一个不受支持的内部函数
+     1>c:\opencv\opencv\build\include\opencv2\core\mat.inl.hpp(381): warning C4793: “cv::Mat::Mat”: 编译为本机的函数:
+         	托管代码中发现一个不受支持的内部函数
+     1>c:\opencv\opencv\build\include\opencv2\core\mat.inl.hpp(1703): warning C4793: “cv::SparseMat::addref”: 编译为本机的函数:
+         	托管代码中发现一个不受支持的内部函数
+     1>c:\opencv\opencv\build\include\opencv2\core\mat.inl.hpp(3304): warning C4793: “cv::UMat::addref”: 编译为本机的函数:
+         	托管代码中发现一个不受支持的内部函数
+     1>c:\opencv\opencv\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: “cv::detail::PtrOwner::incRef”: 编译为本机的函数:
+         	托管代码中发现一个不受支持的内部函数
+     1>c:\opencv\opencv\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: “cv::detail::PtrOwner::decRef”: 编译为本机的函数:
+         	托管代码中发现一个不受支持的内部函数
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /clr /nologo /W3 /WX- /Od /D _DEBUG /D _WINDLL /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fp"x64\Debug\OpenCVTester.pch" /Fa"x64\Debug\\" /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /errorReport:prompt "C:\Users\FREEDOM26\AppData\Local\Temp\.NETFramework,Version=v4.6.AssemblyAttributes.cpp"
+         .NETFramework,Version=v4.6.AssemblyAttributes.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"x64\Debug\app.res" app.rc 
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\ProjectAgle\Repo\x64\Debug\OpenCVTester.dll" /INCREMENTAL /NOLOGO opencv_ts300.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\ProjectAgle\Repo\x64\Debug\OpenCVTester.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X64 /DLL x64\Debug\app.res
+         x64\Debug\AssemblyInfo.obj
+         x64\Debug\OpenCVTester.obj
+         x64\Debug\Stdafx.obj
+         "x64\Debug\.NETFramework,Version=v4.6.AssemblyAttributes.obj"
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2038: 检测到“_MSC_VER”的不匹配项: 值“1800”不匹配值“1900”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(opencv_ts_pch.obj) : error LNK2038: 检测到“_MSC_VER”的不匹配项: 值“1800”不匹配值“1900”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(opencv_ts_pch.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(opencv_ts_pch.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2038: 检测到“_MSC_VER”的不匹配项: 值“1800”不匹配值“1900”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts.obj) : error LNK2038: 检测到“_MSC_VER”的不匹配项: 值“1800”不匹配值“1900”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项: 值“0”不匹配值“2”(OpenCVTester.obj 中)
+     1>opencv_ts300.lib(ts.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项: 值“MD_DynamicRelease”不匹配值“MDd_DynamicDebug”(OpenCVTester.obj 中)
+     1>LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+     1>opencv_ts300.lib(ts_perf.obj) : warning LNK4217: 本地定义的符号 ??0exception@std@@QEAA@AEBV01@@Z (public: __cdecl std::exception::exception(class std::exception const &)) 在函数 "public: __cdecl cv::Exception::Exception(class cv::Exception const &)" (??0Exception@cv@@QEAA@AEBV01@@Z) 中导入
+     1>opencv_ts300.lib(ts_gtest.obj) : warning LNK4049: 已导入本地定义的符号 ??0exception@std@@QEAA@AEBV01@@Z (public: __cdecl std::exception::exception(class std::exception const &))
+     1>opencv_ts300.lib(ts_perf.obj) : warning LNK4217: 本地定义的符号 ??1exception@std@@UEAA@XZ (public: virtual __cdecl std::exception::~exception(void)) 在函数 "int `public: __cdecl cv::Exception::Exception(class Exception::dtor$0 const &)'::`1'::dtor$0" (?dtor$0@?0???0Exception@cv@@QEAA@AEBV01@@Z@4HA) 中导入
+     1>opencv_ts300.lib(ts_gtest.obj) : warning LNK4049: 已导入本地定义的符号 ??1exception@std@@UEAA@XZ (public: virtual __cdecl std::exception::~exception(void))
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 __imp___iob_func，该符号在函数 "public: static void __cdecl perf::TestBase::Init(class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > const &,int,char const * const * const)" (?Init@TestBase@perf@@SAXAEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@HQEBQEBD@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2001: 无法解析的外部符号 __imp___iob_func
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 __imp_printf，该符号在函数 "public: static void __cdecl perf::TestBase::Init(class std::vector<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::allocator<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > > > const &,int,char const * const * const)" (?Init@TestBase@perf@@SAXAEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@HQEBQEBD@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2001: 无法解析的外部符号 __imp_printf
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: void __cdecl std::_Container_base0::_Orphan_all(void)" (__imp_?_Orphan_all@_Container_base0@std@@QEAAXXZ)，该符号在函数 "public: __cdecl std::vector<struct std::pair<int,class cv::Size_<int> >,class std::allocator<struct std::pair<int,class cv::Size_<int> > > >::~vector<struct std::pair<int,class cv::Size_<int> >,class std::allocator<struct std::pair<int,class cv::Size_<int> > > >(void)" (??1?$vector@U?$pair@HV?$Size_@H@cv@@@std@@V?$allocator@U?$pair@HV?$Size_@H@cv@@@std@@@2@@std@@QEAA@XZ) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2001: 无法解析的外部符号 "__declspec(dllimport) public: void __cdecl std::_Container_base0::_Orphan_all(void)" (__imp_?_Orphan_all@_Container_base0@std@@QEAAXXZ)
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: void __cdecl std::_Container_base0::_Swap_all(struct std::_Container_base0 &)" (__imp_?_Swap_all@_Container_base0@std@@QEAAXAEAU12@@Z)，该符号在函数 "void __cdecl perf::sort(class std::vector<class cv::KeyPoint,class std::allocator<class cv::KeyPoint> > &,class cv::_InputOutputArray const &)" (?sort@perf@@YAXAEAV?$vector@VKeyPoint@cv@@V?$allocator@VKeyPoint@cv@@@std@@@std@@AEBV_InputOutputArray@cv@@@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2001: 无法解析的外部符号 "__declspec(dllimport) public: void __cdecl std::_Container_base0::_Swap_all(struct std::_Container_base0 &)" (__imp_?_Swap_all@_Container_base0@std@@QEAAXAEAU12@@Z)
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __cdecl std::bad_cast::bad_cast(char const *)" (__imp_??0bad_cast@std@@QEAA@PEBD@Z)，该符号在函数 "class std::codecvt<char,char,int> const & __cdecl std::use_facet<class std::codecvt<char,char,int> >(class std::locale const &)" (??$use_facet@V?$codecvt@DDH@std@@@std@@YAAEBV?$codecvt@DDH@0@AEBVlocale@0@@Z) 中被引用
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: int __cdecl std::codecvt<char,char,int>::in(int &,char const *,char const *,char const * &,char *,char *,char * &)const " (__imp_?in@?$codecvt@DDH@std@@QEBAHAEAHPEBD1AEAPEBDPEAD3AEAPEAD@Z)，该符号在函数 "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::uflow(void)" (?uflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHXZ) 中被引用
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: int __cdecl std::codecvt<char,char,int>::out(int &,char const *,char const *,char const * &,char *,char *,char * &)const " (__imp_?out@?$codecvt@DDH@std@@QEBAHAEAHPEBD1AEAPEBDPEAD3AEAPEAD@Z)，该符号在函数 "protected: virtual int __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::overflow(int)" (?overflow@?$basic_filebuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z) 中被引用
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: int __cdecl std::codecvt<char,char,int>::unshift(int &,char *,char *,char * &)const " (__imp_?unshift@?$codecvt@DDH@std@@QEBAHAEAHPEAD1AEAPEAD@Z)，该符号在函数 "protected: bool __cdecl std::basic_filebuf<char,struct std::char_traits<char> >::_Endwrite(void)" (?_Endwrite@?$basic_filebuf@DU?$char_traits@D@std@@@std@@IEAA_NXZ) 中被引用
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static unsigned __int64 __cdecl std::codecvt<char,char,int>::_Getcat(class std::locale::facet const * *,class std::locale const *)" (__imp_?_Getcat@?$codecvt@DDH@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z)，该符号在函数 "class std::codecvt<char,char,int> const & __cdecl std::use_facet<class std::codecvt<char,char,int> >(class std::locale const &)" (??$use_facet@V?$codecvt@DDH@std@@@std@@YAAEBV?$codecvt@DDH@0@AEBVlocale@0@@Z) 中被引用
+     1>opencv_ts300.lib(ts_perf.obj) : error LNK2001: 无法解析的外部符号 "__declspec(dllimport) public: static class std::locale::id std::codecvt<char,char,int>::id" (__imp_?id@?$codecvt@DDH@std@@2V0locale@2@A)
+     1>opencv_ts300.lib(opencv_ts_pch.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) char const * __cdecl std::_Winerror_map(int)" (__imp_?_Winerror_map@std@@YAPEBDH@Z)，该符号在函数 "public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl std::_System_error_category::message(int)const " (?message@_System_error_category@std@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __cdecl std::exception::exception(char const * const &)" (__imp_??0exception@std@@QEAA@AEBQEBD@Z)，该符号在函数 "public: __cdecl testing::internal::GoogleTestFailureException::GoogleTestFailureException(class testing::TestPartResult const &)" (??0GoogleTestFailureException@internal@testing@@QEAA@AEBVTestPartResult@2@@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2019: 无法解析的外部符号 __imp_fprintf，该符号在函数 "public: __cdecl testing::internal::XmlUnitTestResultPrinter::XmlUnitTestResultPrinter(char const *)" (??0XmlUnitTestResultPrinter@internal@testing@@QEAA@PEBD@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2019: 无法解析的外部符号 __imp__snprintf_s，该符号在函数 "void __cdecl testing::`anonymous namespace'::PrintByteSegmentInObjectTo(unsigned char const *,unsigned __int64,unsigned __int64,class std::basic_ostream<char,struct std::char_traits<char> > *)" (?PrintByteSegmentInObjectTo@?A0xe3f526b2@testing@@YAXPEBE_K1PEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@@Z) 中被引用
+     1>opencv_ts300.lib(ts_gtest.obj) : error LNK2019: 无法解析的外部符号 __imp_vprintf，该符号在函数 "void __cdecl testing::internal::ColoredPrintf(enum testing::internal::GTestColor,char const *,...)" (?ColoredPrintf@internal@testing@@YAXW4GTestColor@12@PEBDZZ) 中被引用
+     1>opencv_ts300.lib(ts.obj) : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) void (__cdecl*__cdecl _set_se_translator(void (__cdecl*)(unsigned int,struct _EXCEPTION_POINTERS *)))(unsigned int,struct _EXCEPTION_POINTERS *)" (__imp_?_set_se_translator@@YAP6AXIPEAU_EXCEPTION_POINTERS@@@ZP6AXI0@Z@Z)，该符号在函数 "public: virtual void __cdecl cvtest::TS::init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?init@TS@cvtest@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 中被引用
+     1>opencv_ts300.lib(ts.obj) : error LNK2019: 无法解析的外部符号 __imp_vsnprintf，该符号在函数 "public: virtual void __cdecl cvtest::TS::vprintf(int,char const *,char *)" (?vprintf@TS@cvtest@@UEAAXHPEBDPEAD@Z) 中被引用
+     1>MSVCRTD.lib(vsnprintf.obj) : error LNK2001: 无法解析的外部符号 __imp_vsnprintf
+     1>opencv_ts300.lib(ts.obj) : error LNK2019: 无法解析的外部符号 __imp_sprintf，该符号在函数 "public: virtual void __cdecl cvtest::TS::init(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?init@TS@cvtest@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 中被引用
+     1>MSVCRTD.lib(vsnprintf.obj) : error LNK2001: 无法解析的外部符号 __imp__vsnprintf
+     1>E:\ProjectAgle\Repo\x64\Debug\OpenCVTester.dll : fatal error LNK1120: 19 个无法解析的外部命令
+     1>已完成生成项目“E:\ProjectAgle\Repo\OpenCVTester\OpenCVTester.vcxproj”(Rebuild 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.25

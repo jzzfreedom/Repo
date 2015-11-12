@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace ProjectAgle
 {
@@ -25,13 +26,15 @@ namespace ProjectAgle
         private SelfCheckingPageViewModel selfCheckingPageVM;
         private TitlePageViewModel titlePageVM;
         private bool titlePageFinished = false;
-        public MainWindowViewModel(Frame CurrentFrame)
+        private Dispatcher mainWindowDispatcher;
+        public MainWindowViewModel(Frame CurrentFrame, Dispatcher mainWindowDispatcher)
         {
             this.currentFrame = CurrentFrame;
+            this.mainWindowDispatcher = mainWindowDispatcher;
 
             // Initialize Agle as soon as possible
             MyAgle = Agle.Agle.GetAgleInstance;
-            MyAgle.InitializeAgle();
+            MyAgle.InitializeAgle(this.mainWindowDispatcher);
 
 
             // Creating ViewModel for all related pages

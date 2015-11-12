@@ -42,7 +42,7 @@
                 <Separator/>
                 <MenuItem Header="_Kinect Depth" Command="{Binding KinectDepthSelected}"/>
                 <Separator/>
-                <MenuItem Header="_Main Front"/>
+                <MenuItem Header="_Main Front" Command="{Binding OpenCVMainCameraSelected}"/>
                 <Separator/>
                 <MenuItem Header="_Forward"/>
                 <Separator/>

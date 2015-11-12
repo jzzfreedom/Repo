@@ -13,13 +13,17 @@ namespace ProjectAgle.control.MainMenu
         private ICommand kinectColorSelected;
         private ICommand kinectInfraredSelected;
         private ICommand kinectDepthSelected;
+        private ICommand openCVMainCameraSelected;
+
         internal event EventHandler<AgleView> ChangeView;
         public MainMenuViewModel()
         {
             this.kinectColorSelected = new GeneralCommand(param => this.OnKinectColorSelected());
             this.kinectInfraredSelected = new GeneralCommand(param => this.OnKinectInfraredSelected());
             this.kinectDepthSelected = new GeneralCommand(param => this.OnKinectDepthSelected());
+            this.openCVMainCameraSelected = new GeneralCommand(param => this.OnOpenCVMainCameraSelected());
         }
+
         public ICommand KinectColorSelected
         {
             get { return this.kinectColorSelected; }
@@ -34,6 +38,11 @@ namespace ProjectAgle.control.MainMenu
         {
             get { return this.kinectDepthSelected; }
         }
+
+        public ICommand OpenCVMainCameraSelected
+        {
+            get { return this.openCVMainCameraSelected; }
+        }
         private void OnKinectColorSelected()
         {
             this.ChangeView.Invoke(this, AgleView.KinectColor);
@@ -47,6 +56,10 @@ namespace ProjectAgle.control.MainMenu
         private void OnKinectDepthSelected()
         {
             this.ChangeView.Invoke(this, AgleView.KinectDepth);
+        }
+        private void OnOpenCVMainCameraSelected()
+        {
+            this.ChangeView.Invoke(this, AgleView.MainFront);
         }
     }
 }

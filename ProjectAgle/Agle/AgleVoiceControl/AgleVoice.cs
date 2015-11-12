@@ -112,6 +112,9 @@ namespace ProjectAgle.Agle.AgleVoiceControl
             this.agleVoiceDictionary.Add(new SemanticResultValue("infrared frame", "INFRAREDFRAME"));
             this.agleVoiceDictionary.Add(new SemanticResultValue("infrared view", "INFRAREDFRAME"));
             this.agleVoiceDictionary.Add(new SemanticResultValue("infrared depth", "INFRAREDFRAME"));
+            this.agleVoiceDictionary.Add(new SemanticResultValue("main camera", "MAINFORWARD"));
+            this.agleVoiceDictionary.Add(new SemanticResultValue("main", "MAINFORWARD"));
+            this.agleVoiceDictionary.Add(new SemanticResultValue("forward", "MAINFORWARD"));
 
         }
         private void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
@@ -141,7 +144,10 @@ namespace ProjectAgle.Agle.AgleVoiceControl
                         UpdateVoiceCommand(this, "infrared frame");
                         UpdateAgleViewByVoice(this, AgleView.KinectInfrared);
                         break;
-
+                    case "MAINFORWARD":
+                        UpdateVoiceCommand(this, "Main Forward");
+                        UpdateAgleViewByVoice(this, AgleView.MainFront);
+                        break;
                 }
             }
         }
